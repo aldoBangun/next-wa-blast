@@ -4,7 +4,7 @@ import DrawerMenu from './DrawerMenu'
 import DrawerMenuItem from './DrawerMenuItem'
 
 export default function Drawer({ side, content }){
-    return <div className="drawer drawer-mobile bg-base-300">
+    return <div className="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       {content}
       {side}
