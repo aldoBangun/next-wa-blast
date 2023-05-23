@@ -24,7 +24,7 @@ function processRequest(request, callback) {
       const { action, subAction } = await getRoute(request)
       const res = await callback(action, subAction)
 
-      resolve(NextResponse.json(res.data))
+      resolve(NextResponse.json(res?.data || res))
     } catch(err) {
       resolve(NextResponse.json({
         code: -1,

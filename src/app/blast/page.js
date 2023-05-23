@@ -1,6 +1,6 @@
 const fetchData = async () => {
-  const res = await fetch('api/hello')
-  await res.json()
+  const res = await fetch('http://localhost:3000/api?path=media&dest=getMedia')
+  return res.json()
 }
 
 export default async function Blast() {

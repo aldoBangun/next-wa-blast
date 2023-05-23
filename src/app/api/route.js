@@ -1,18 +1,26 @@
 import processRequest from '@/utils/processRequest'
-import axios from 'axios'
 
-axios.defaults.baseURL = `http://${process.env.API_HOST}:${process.env.API_PORT}`
+const apiUrl = `http://${process.env.API_HOST}:${process.env.API_PORT}`
 
 export async function GET(request) {
   return await processRequest(request, async (action, subAction) => {
-    return await axios.get(`/${action}/${subAction}`)
+    const res = await fetch(`${apiUrl}/${action}/${subAction}`)
+    return await res.json()
   })
 }
 
 export async function POST(request) {
-  const reqBody = await request.json()
+  const params = await request.json()
   
   return await processRequest(request, async (action, subAction) => {
-    return await axios.post(`/${action}/${subAction}`, { reqBody })
+    const res = await fetch(`${apiUrl}/${action}/${subAction}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ params })
+    })
+
+    return await res.json()
   })
 }
