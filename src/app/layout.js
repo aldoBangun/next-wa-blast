@@ -13,6 +13,7 @@ import {
 import Image from 'next/image'
 import ButtonLogout from '@/components/ButtonLogout'
 import Link from 'next/link'
+import Provider from '@/components/Provider'
 
 const inter = Inter({
   weight: ['100', '200', '300', '400', '500', '600', '700'],
@@ -70,44 +71,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="wab">
       <body className={inter.className}>
-        <Drawer
-          side={
-            <Drawer.Side className="flex flex-col font-extralight">
-              <Navbar>
-                <Link className="btn btn-ghost text-lg" href="/">Next<span className="text-primary">Ji</span></Link>
-              </Navbar>
-              <div className="flex flex-col justify-between flex-1">
-                <Drawer.Menu data={mainMenuList} />
-                <Drawer.Menu data={secondaryMenuList}>
-                  <ButtonLogout />
-                </Drawer.Menu>
-              </div>
-            </Drawer.Side>
-          }
-          content={
-            <Drawer.Content>
-              <Navbar className="justify-between">
-                <div>Dashboard</div>
-                <div className="flex items-center gap-4">
-                  <div className="flex items-center gap-2 p-2">
-                    <div className="avatar">
-                      <div className="w-8 rounded-full">
-                        <Image
-                          src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-                          alt="Shoes"
-                          width={100}
-                          height={100}
-                        />
-                      </div>
-                    </div>
-                    <span className="text-sm font-semibold">Markie</span>
-                  </div>
-                </div>
-              </Navbar>
-              {children}
-            </Drawer.Content>
-          }
-        />
+        <Provider>{children}</Provider>
       </body>
     </html>
   )

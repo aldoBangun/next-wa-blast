@@ -1,12 +1,13 @@
-import fakeWaiting from '@/utils/fakeWaiting'
-import SummaryList from '@/components/dashboard/SummaryList'
+'use client'
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
-export default async function Home() {
-  await fakeWaiting()
+export default function Home() {
+  const router = useRouter()
 
-  return (
-    <>
-      <SummaryList />
-    </>
-    )
+  useEffect(() => {
+    router.push('/dashboard')
+  }, [router])
+
+  return <p>Loading...</p>
 }
