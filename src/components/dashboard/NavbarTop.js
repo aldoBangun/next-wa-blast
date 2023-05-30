@@ -6,7 +6,8 @@ import Image from 'next/image'
 export default function NavbarTop() {
   const { data:  session } = useSession()
   const username = session?.user?.username || ''
-
+  const role = session?.user?.role || ''
+  
   return (
     <Navbar className="justify-between">
       <div>Dashboard</div>
@@ -22,7 +23,10 @@ export default function NavbarTop() {
               />
             </div>
           </div>
-          <span className="text-sm font-semibold">{username}</span>
+          <div>
+            <span className="block text-sm font-semibold -mb-1">{username}</span>
+            <span className="text-xs">{role}</span>
+          </div>
         </div>
       </div>
     </Navbar>
