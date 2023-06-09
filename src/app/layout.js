@@ -1,6 +1,7 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import Provider from '@/components/Provider'
+import ReduxProvider from '@/redux/ReduxProvider'
 
 const inter = Inter({
   weight: ['100', '200', '300', '400', '500', '600', '700'],
@@ -16,7 +17,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="wab">
       <body className={inter.className}>
-        <Provider>{children}</Provider>
+        <Provider>
+          <ReduxProvider>
+            {children}
+          </ReduxProvider>
+        </Provider>
       </body>
     </html>
   )

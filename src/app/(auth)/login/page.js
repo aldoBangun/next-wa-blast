@@ -18,10 +18,10 @@ export default function Auth() {
     },
     onSubmit: async (values) => {
       setHasError(false)
+
       const result = await signIn('credentials', {
         username: values.username,
-        password: values.password,
-        redirect: false
+        password: values.password
       })
 
       if (result.error) setHasError(true)
