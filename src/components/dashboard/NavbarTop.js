@@ -7,6 +7,8 @@ export default function NavbarTop() {
   const { data:  session } = useSession()
   const username = session?.user?.username || ''
   const role = session?.user?.role || ''
+
+  console.log(data)
   
   return (
     <Navbar className="justify-between">

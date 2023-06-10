@@ -10,6 +10,7 @@ export default function SidebarMenu({ data, children = '', ...args }) {
           link={item.link}
           icon={item.icon}
           label={item.label}
+          hidden={item.hidden}
         />
       ))}
       {children && children}

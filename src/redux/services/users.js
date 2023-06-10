@@ -8,10 +8,22 @@ export const usersApi = createApi({
       query: ({ limit, offset }) => {
         if (!limit && !offset) return 'users'
         return `users?limit=${limit}&offset=${offset}`
-      }
+      },
     }),
+    changePassword: builder.mutation({
+      query: (payload) => {
+        return {
+          url: '?path=users&dest=changePassword',
+          method: 'POST',
+          body: payload,
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+          },
+        }
+      } 
+    })
   }),
 })
 
 
-export const { useGetUsersQuery } = usersApi
+export const { useGetUsersQuery, useChangePasswordMutation } = usersApi

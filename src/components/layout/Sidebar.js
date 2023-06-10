@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { signOut } from 'next-auth/react'
+import { signOut, useSession } from 'next-auth/react'
 import { useSelector } from 'react-redux'
 import { Button, Navbar } from 'react-daisyui'
 import classNames from 'classnames'
@@ -60,12 +60,15 @@ const secondaryMenuList = [
 
 export default function Sidebar() {
   const { isOpen } = useSelector((state) => state.navbar)
+  const { data: session } = useSession()
   const sidebarClassNames = classNames('flex flex-col h-screen max-h-screen overflow-hidden transition-[width]', {
     'w-72': isOpen,
     'w-0': !isOpen,
     'p-4': isOpen,
     'p-0': !isOpen
   })
+
+  // if (session?.user?.)
 
   return (
     <div className={sidebarClassNames}>

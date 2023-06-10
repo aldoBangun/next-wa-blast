@@ -13,7 +13,7 @@ export default function Topbar() {
   const { isOpen } = useSelector((state) => state.navbar)
   const dispatch = useDispatch()
 
-  const username = session?.user?.username || ''
+  const username = session?.user?.name || ''
   const usernameInitial = username[0]?.toUpperCase() || ''
   const role = session?.user?.role || ''
 

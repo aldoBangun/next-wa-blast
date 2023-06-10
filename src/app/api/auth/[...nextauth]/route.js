@@ -1,6 +1,8 @@
 import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
-import jwtDecode from 'jwt-decode'
+import axios from 'axios'
+
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 
 export const authOptions = {
   providers: [
@@ -10,21 +12,19 @@ export const authOptions = {
         username: { label: 'Username', type: 'text', placeholder: 'jsmith' },
         password: { label: 'Password', type: 'password' }
       },
-      async authorize(credentials, req) {
-        const res = await fetch('http://localhost:5500/auth/login', {
-          method: 'POST',
-          body: JSON.stringify(credentials),
-          headers: { 'Content-Type': 'application/json' }
-        })
-        const response = await res.json()
+      async authorize(credentials) {
+        try {
+          const res = await axios.post('https://10.8.0.6:4000/api-cgi/Users/login', {
+            username: credentials.username,
+            password: credentials.password
+          })
 
-        if (response.content) {
-          const user = jwtDecode(response.content.accessToken)
+          if (res.data.code === 1) return res.data.result
+          return null
 
-          user.accessToken = response.content.accessToken
-          if (res.ok && user) return user
+        } catch(err) {
+          console.log(err)
         }
-        return null
       }
     })
   ],

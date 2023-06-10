@@ -2,12 +2,13 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import classNames from 'classnames'
-import { Button, Menu } from 'react-daisyui'
+import { Menu } from 'react-daisyui'
 
 export default function SidebarMenuItem({
   link,
   icon = '',
   label,
+  hidden,
   gap = 16,
   ...args
 }) {
@@ -26,6 +27,8 @@ export default function SidebarMenuItem({
   }
 
   const linkClassNames = classNames(itemClassNames)
+
+  if (hidden) return <>{''}</>
 
   return (
     <Menu.Item>

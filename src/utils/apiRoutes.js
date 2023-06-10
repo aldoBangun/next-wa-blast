@@ -5,3 +5,7 @@ export const media = {
 export const peopleMovement = {
   getPeopleMovement: { action: 'movement', subAction: 'getPeopleMovement' }
 }
+
+export const users = {
+  changePassword: { action: 'Users', subAction: 'changePassword' }
+}
