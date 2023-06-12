@@ -6,7 +6,7 @@ export const accountsApi = createApi({
   tagTypes: ['Account'],
   endpoints: (builder) => ({
     getAccounts: builder.query({
-      query: ({ limit = 10, offset = 0 }) => `/accounts?limit=${limit}&offset=${offset}`,
+      query: ({ limit = 10, offset = 0 }) => `?path=accounts&dest=accountLists&limit=${limit}&offset=${offset}`,
       providesTags: ['Account'],
     }),
     requestQr: builder.mutation({

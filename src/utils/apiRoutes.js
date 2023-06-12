@@ -8,7 +8,7 @@ export const peopleMovement = {
 
 export const users = {
   changePassword: { action: 'Users', subAction: 'changePassword' },
-  usersLists: { action: 'Users', subAction: 'lists' },
+  userLists: { action: 'Users', subAction: 'lists' },
   createUser: { action: 'Users', subAction: 'create' },
   deleteUser: { action: 'Users', subAction: 'delete' },
   enableUser: { action: 'Users', subAction: 'enable' },
@@ -17,5 +17,6 @@ export const users = {
 }
 
 export const accounts = {
+  accountLists: { action: 'Accounts', subAction: 'lists' },
   requestQr: { action: 'Accounts', subAction: 'requestQr' }
 }

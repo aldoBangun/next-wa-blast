@@ -6,7 +6,7 @@ export const usersApi = createApi({
   tagTypes: ['User'],
   endpoints: (builder) => ({
     getUsers: builder.query({
-      query: ({ limit = 10, offset = 0 }) => `/users?limit=${limit}&offset=${offset}`,
+      query: ({ limit = 10, offset = 0 }) => `?path=users&dest=userLists&limit=${limit}&offset=${offset}`,
       providesTags: ['User']
     }),
     changePassword: builder.mutation({
