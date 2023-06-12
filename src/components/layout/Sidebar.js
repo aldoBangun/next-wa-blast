@@ -9,7 +9,6 @@ import {
   Whatsapp,
   PersonBadge,
   Key,
-  Diagram2,
   People,
   BoxArrowLeft,
 } from 'react-bootstrap-icons'
@@ -35,12 +34,6 @@ const mainMenuList = [
     icon: <PersonBadge />
   },
   {
-    id: 4,
-    label: 'Instances',
-    link: '/instances',
-    icon: <Diagram2 />
-  },
-  {
     id: 5,
     label: 'Users',
     link: '/users',
@@ -60,7 +53,7 @@ const secondaryMenuList = [
 
 export default function Sidebar() {
   const { isOpen } = useSelector((state) => state.navbar)
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
   const sidebarClassNames = classNames('flex flex-col h-screen max-h-screen overflow-hidden transition-[width]', {
     'w-72': isOpen,
     'w-0': !isOpen,
@@ -68,7 +61,10 @@ export default function Sidebar() {
     'p-0': !isOpen
   })
 
-  // if (session?.user?.)
+  // if (session?.user?.role !== 'admin') {
+  //   const indexUsersMenu = mainMenuList.findIndex((menu) => menu.link === '/users')
+  //   mainMenuList[indexUsersMenu].hidden = true
+  // }
 
   return (
     <div className={sidebarClassNames}>

@@ -28,12 +28,12 @@ module.exports = {
           primary: '#37E2D5',
           secondary: '#590696',
           accent: '#C70A80',
-          neutral: '#FBCB0A',
+          neutral: '#203140',
           danger: '#c71225',
           'base-100': '#203140',
 
-          '--rounded-box': '1rem', // border radius rounded-box utility class, used in card and other large boxes
-          '--rounded-btn': '1rem', // border radius rounded-btn utility class, used in buttons and similar element
+          '--rounded-box': '2rem', // border radius rounded-box utility class, used in card and other large boxes
+          '--rounded-btn': '.5rem', // border radius rounded-btn utility class, used in buttons and similar element
           '--rounded-badge': '1.9rem', // border radius rounded-badge utility class, used in badges and similar
           '--animation-btn': '0.25s', // duration of animation when you click on button
           '--animation-input': '0.2s', // duration of animation for inputs like checkbox, toggle, radio, etc
@@ -45,8 +45,34 @@ module.exports = {
         },
       },
       'light',
+      'dark',
+      'cupcake',
+      'bumblebee',
+      'emerald',
+      'corporate',
+      'synthwave',
+      'retro',
+      'cyberpunk',
+      'valentine',
+      'halloween',
+      'garden',
+      'forest',
+      'aqua',
+      'lofi',
+      'pastel',
+      'fantasy',
+      'wireframe',
+      'black',
+      'luxury',
       'dracula',
-      'forest'
+      'cmyk',
+      'autumn',
+      'business',
+      'acid',
+      'lemonade',
+      'night',
+      'coffee',
+      'winter',
     ],
   },
 }

@@ -1,6 +1,6 @@
 import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
-import axios from 'axios'
+import axios from '@/utils/axiosInstance'
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 
@@ -14,7 +14,7 @@ export const authOptions = {
       },
       async authorize(credentials) {
         try {
-          const res = await axios.post('https://10.8.0.6:4000/api-cgi/Users/login', {
+          const res = await axios.post('Users/login', {
             username: credentials.username,
             password: credentials.password
           })

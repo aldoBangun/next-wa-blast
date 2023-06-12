@@ -9,7 +9,7 @@ export async function GET(req) {
   const offset = searchParams.get('offset')
   const session = await getServerSession(authOptions)
 
-  const response = await axios.post('Users/lists', {
+  const response = await axios.post('Accounts/lists', {
     offset,
     limit,
     sessionUsername: session?.user?.username

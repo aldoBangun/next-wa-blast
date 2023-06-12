@@ -1,12 +1,8 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
 import Provider from '@/components/Provider'
 import ReduxProvider from '@/redux/ReduxProvider'
+import MainLayout from '@/components/layout/MainLayout'
 
-const inter = Inter({
-  weight: ['100', '200', '300', '400', '500', '600', '700'],
-  subsets: ['latin']
-})
 
 export const metadata = {
   title: 'Neks Ji',
@@ -15,14 +11,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-theme="wab">
-      <body className={inter.className}>
+    // <html lang="en" data-theme="light">
+    //   <body className={inter.className}>
         <Provider>
           <ReduxProvider>
-            {children}
+            <MainLayout>
+              {children}
+            </MainLayout>
           </ReduxProvider>
         </Provider>
-      </body>
-    </html>
+    //   </body>
+    // </html>
   )
 }
